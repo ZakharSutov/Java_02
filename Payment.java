@@ -11,6 +11,14 @@ public class Payment {
         this.year = year;
         this.amountPm = amountPm;
     }
+    
+    public Payment(Payment orig){
+        day = orig.day;
+        month = orig.month;
+        year = orig.year;
+        amountPm = orig.amountPm;
+        FullName = orig.FullName;
+    }
 
     public Payment() {
         this.FullName = "";
