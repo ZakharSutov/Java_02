@@ -10,6 +10,7 @@ public class StringProcessorTest {
         String s = "";
         s = str.num1("a", 4);
         assertEquals("aaaa", s);
+        System.out.println(s);
     }
 
     @Test
@@ -37,6 +38,7 @@ public class StringProcessorTest {
         String s = "";
         s = str.num3("241231");
         assertEquals("два4одиндватриодин", s);
+        System.out.println(s);
     }
 
     @Test
@@ -45,5 +47,6 @@ public class StringProcessorTest {
         StringBuilder s = new StringBuilder("123456789");
         str.Num4(s);
         assertEquals("13579", s.toString());
+        System.out.println(s);
     }
 }

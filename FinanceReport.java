@@ -1,3 +1,4 @@
+
 public class FinanceReport {
     private static Payment[] arrPayment;
     private static String FullNameAuthor;
@@ -11,8 +12,34 @@ public class FinanceReport {
         this.year = year;
     }
 
+    public FinanceReport(FinanceReport orig){
+        FullNameAuthor = orig.FullNameAuthor;
+        day = orig.day;
+        month = orig.month;
+        year = orig.year;
+        for (int i = 0; i < orig.numPm(); i++){
+            arrPayment[i] = new Payment(orig.getPayment(i));
+        }
+    }
+
     public int numPm() {
         return arrPayment.length;
+    }
+
+    public static int getDay() {
+        return day;
+    }
+
+    public static int getMonth() {
+        return month;
+    }
+
+    public static int getYear() {
+        return year;
+    }
+
+    public static String getFullNameAuthor() {
+        return FullNameAuthor;
     }
 
     public Payment getPayment(int i) {
@@ -23,11 +50,18 @@ public class FinanceReport {
         arrPayment[i] = x;
     }
 
-    /*public static String toString(){
-        String str = String.format("Автор: %s, дата: %d.$d.%d Платежи:[/n", FullNameAuthor, day, month, year);
-        for (int i = 0; i < arrPayment.length(); i++) {
-            str += String.format("Плательщик: %s, дата: %d.%d.%d, сумма: %руб. коп./n",);
+    public String toString(){
+        String str = String.format("Автор: %s, дата: %02d.%02d.%d Платежи:[", FullNameAuthor, day, month, year);
+        for (int i = 0; i < arrPayment.length; i++) {
+            str += String.format("\nПлательщик: %s, дата: %02d.%02d.%d, сумма: %d руб. %d коп.", arrPayment[i].getFullName(),
+                    arrPayment[i].getDay(), arrPayment[i].getMonth(), arrPayment[i].getYear(), arrPayment[i].getAmountPm()/100,
+                    arrPayment[i].getAmountPm()%100);
+            if (i + 1 < arrPayment.length){
+                str += ",";
+            }
         }
+        str += "]";
         return str;
-    }*/
+    }
+
 }

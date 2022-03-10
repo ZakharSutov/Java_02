@@ -11,7 +11,8 @@ public class Payment {
         this.year = year;
         this.amountPm = amountPm;
     }
-    
+
+
     public Payment(Payment orig){
         day = orig.day;
         month = orig.month;
