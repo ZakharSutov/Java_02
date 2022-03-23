@@ -27,4 +27,30 @@ public class FinanceReportTest {
         System.out.println(str1);
         System.out.println(str2);
     }
+
+    @Test
+    public void testReportAuthor(){
+        FinanceReport exm = new FinanceReport("Пушкин А.С.", 9, 3, 2022);
+        FinanceReport exm1 = new FinanceReport("Лермантов М.Ю.", 9, 3, 2022);
+        assertNotEquals(exm.getFullNameAuthor(), exm1.getFullNameAuthor());
+
+    }
+
+    @Test
+    public void testFinanceReportCopy(){
+        Payment x = new Payment("Ленин В.И.", 3, 3, 2022, 100);
+        Payment y = new Payment("Ленин В.И.", 4, 3, 2022, 123);
+        Payment z = new Payment("Ленин В.И.", 5, 12, 2022, 1024);
+        Payment w = new Payment("Ленин В.И.", 6, 3, 2022, 100);
+        FinanceReport exm = new FinanceReport("Пушкин А.С.", 9, 3, 2022);
+        exm.setPayment(x);
+        exm.setPayment(y);
+        exm.setPayment(z);
+        exm.setPayment(w);
+        FinanceReport exm1 = new FinanceReport(exm);
+        String str1 = exm1.toString();
+        exm.getPayment(1).setFullName("Сталин И.В.");
+        String str2 = exm1.toString();
+        assertEquals(str1, str2);
+    }
 }

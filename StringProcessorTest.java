@@ -13,7 +13,7 @@ public class StringProcessorTest {
         System.out.println(s);
     }
 
-    @Test
+    @Test(expected = IllegalArgumentException.class)
     public void testNum1Fail() {
         StringProcessor str = new StringProcessor();
         str.num1("a", -2);
@@ -24,6 +24,13 @@ public class StringProcessorTest {
         StringProcessor str = new StringProcessor();
         int count = str.num2("abcabc", "b" );
         assertEquals(2, count);
+    }
+
+    @Test
+    public void testNum2Correct3(){
+        StringProcessor str = new StringProcessor();
+        int count = str.num2("acac", "b" );
+        assertEquals(0, count);
     }
 
     @Test

@@ -1,13 +1,9 @@
 public class StringProcessor {
     public String num1(String s, int n) {
         String str = "";
-        try {
-            if (n < 0) throw new IllegalArgumentException("n < 0");
-            for (int i = 0; i < n; i++) {
-                str += s;
-            }
-        } catch (IllegalArgumentException e) {
-            System.err.println(e.getMessage());
+        if (n < 0) throw new IllegalArgumentException("n < 0");
+        for (int i = 0; i < n; i++) {
+            str += s;
         }
         return str;
     }
@@ -24,7 +20,7 @@ public class StringProcessor {
                 if (n >= 0) n++;
                 count++;
             }
-        } catch (NullException e){
+        } catch (NullException e) {
             System.err.println(e.getMessage());
         }
         return count;
@@ -70,10 +66,10 @@ public class StringProcessor {
         return str;
     }
 
-    public StringBuilder Num4(StringBuilder str){
+    public StringBuilder Num4(StringBuilder str) {
         int n;
-        for (int i = 1; i < str.length(); i++){
-            str.delete(i, i+1);
+        for (int i = 1; i < str.length(); i++) {
+            str.delete(i, i + 1);
         }
         return str;
     }
